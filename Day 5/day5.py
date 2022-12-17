@@ -5,7 +5,7 @@ SCRIPT_DIR = Path(__file__).parent
 INPUT_FILE = Path(SCRIPT_DIR, "input.txt")
 stacks = {}
 rows = []
-instructions = {}
+instructions = []
 n = 0
 
 with open(INPUT_FILE, "r", encoding="UTF-8") as f:
@@ -28,9 +28,9 @@ with open(INPUT_FILE, "r", encoding="UTF-8") as f:
                 
                 tempinstruction.remove("")
                 for i in range(len(tempinstruction)): 
-                    tempinstruction[i] = int(tempinstruction[i])
+                    tempinstruction[i] = int(tempinstruction[i])-1
                     
-                instructions[n] = tempinstruction
+                instructions.append(tempinstruction)
                 n += 1
                 
 
@@ -42,8 +42,35 @@ for row in reversed(rows):
         stacks[row[0]] = []
     stacks[row[0]].append(row[1])
 
+stackList = []
+for stack in stacks:
+    stackList.append(stacks[stack])
 
-for instruction in instructions:
-    tempstack = stacks[instruction[2]-1]
-    for i in range(instruction[0]):
-        tempstack.append()
+stackList.reverse()
+
+part1 = False
+
+#part 1
+
+if part1:
+    for instruction in instructions:
+        for i in range(instruction[0]+1):
+            stackList[instruction[2]].append(stackList[instruction[1]].pop())
+  
+    
+#part 2
+
+if not part1:
+    for instruction in instructions:
+        tempstack = []
+        for i in range(instruction[0]+1):
+            tempstack.append(stackList[instruction[1]].pop())
+        
+        for item in reversed(tempstack):
+            stackList[instruction[2]].append(item)
+            
+            
+#end
+
+for stack in stackList:
+    print(stack.pop(),end="")

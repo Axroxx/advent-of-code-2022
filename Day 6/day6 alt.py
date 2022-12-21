@@ -3,7 +3,7 @@ Advent of Code 2022, Day 06
 """
 import timeit
 from pathlib import Path
-from tqdm import tqdm
+#from tqdm import tqdm
 
 start = timeit.timeit()
 
@@ -32,9 +32,7 @@ with open(INPUT_FILE, "r", encoding="UTF-8") as str_file:
 
 
 
-for i in tqdm(range(10000),
-              desc="Loading…",
-              ascii=False, ncols=75):
+#for i in tqdm(range(10000), desc="Loading…", ascii=False, ncols=75):
     for buffer in txt:
         # part 2
         get_index_of_first_unique_str(buffer, 14)

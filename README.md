@@ -1,6 +1,6 @@
 # advent-of-code-2022
 
-#Authors words:
+## Authors words:
 
 Hi! I'm Eric Wastl. I make Advent of Code. I hope you like it! I also made Vanilla JS, PHP Sadness, and lots of other things. You can find me on Twitter and GitHub.
 

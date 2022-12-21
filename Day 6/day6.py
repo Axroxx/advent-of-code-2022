@@ -1,6 +1,6 @@
 import timeit
 from pathlib import Path
-from tqdm import tqdm
+#from tqdm import tqdm
 
 start = timeit.timeit()
 
@@ -28,7 +28,7 @@ def py():
 
 
 
-for i in tqdm (range (10000), desc="Loading…", ascii=False, ncols=75):
+#for i in tqdm (range (10000), desc="Loading…", ascii=False, ncols=75):
     py()
 
 stop = timeit.timeit()

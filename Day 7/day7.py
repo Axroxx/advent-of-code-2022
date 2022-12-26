@@ -1,4 +1,5 @@
 from pathlib import Path
+from directory import *
 
 SCRIPT_DIR = Path(__file__).parent
 INPUT_FILE = Path(SCRIPT_DIR, "input.txt")
@@ -23,21 +24,16 @@ class Tree(dict):
             else:
                 self[k] = data
                 
-pc = Tree()
+dir = Dir("/")
 
-
-
-currentdir = ""
-dirstack = []
 for line in input:
-    if line.startswith("$ ls"):
+    if line.startswith("$ ls") or line.startswith("$ cd /"):
         pass
     elif line.startswith("$ cd .."):
-        currentdir = dirstack.pop()        
+        pass
     elif line.startswith("dir "):
-        line = line[4:]
-        pc[dir]
+        pass
     elif line.startswith("$ cd"):
-        currentdir = line[5:]
-        dirstack.append(currentdir)
-        pc.
+        dir.insert(line[5:])
+        
+print(dir)
